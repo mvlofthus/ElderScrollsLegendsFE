@@ -3,7 +3,7 @@ import ESLCard from './ESLCard'
 
 
 const Deck = (props) => {
-    const cardInfo = props.cards
+    const cards = props.cards
 
     // const cardInfo = [
     //     {image: "", name: "first card", text: "blah", setname: "blue", type:"fire"},
@@ -15,12 +15,12 @@ const Deck = (props) => {
 
     const renderCard = (card, index) => {
         return(
-            <Card border="secondary" style={{ width: '18rem' }} key={index} >
+            <Card border="secondary" style={{ width: '18rem', textAlign:'left' }} key={index} >
                 <Card.Img variant="top" src={card.imageUrl}/>
                 <Card.Body>
                     {/* <Card.Title>{card.name}</Card.Title> */}
                     <Card.Text>
-                        <ul class="list-unstyled">
+                        <ul>
                             <li><strong>Name:</strong> {card.name}</li>
                             <li><strong>Text:</strong> {card.text}</li>
                             <li><strong>Set Name:</strong> {card.set.name}</li>
@@ -37,7 +37,7 @@ const Deck = (props) => {
 
 return (
     <CardDeck class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
-        {cardInfo.map(renderCard)}
+        {cards.map(renderCard)}
     </CardDeck>
     )
 }

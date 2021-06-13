@@ -1,25 +1,46 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 
-const CardList = () => {
-    const [errorMessage, setErrorMessage] = useState('');
+const CardList = (props) => {
+    const query = props.query;
+    const pageNumber = props.pageNumber;
 
-    // Cards
+    const [error, setError] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [cards, setCards] = useState([]);
-
+    const [hasMore, setHasMore] = useState(false)
     
     useEffect(() => {
-        axios.get('https://api.elderscrollslegends.io/v1/cards')
+        setCards([])
+    }, [query]
+    )
+
+    useEffect(() => {
+        setLoading(true);
+        setError(false);
+
+        let cancel 
+        axios.get(`https://api.elderscrollslegends.io/v1/cards?pageSize=20&name=${query}&page=${pageNumber}`, 
+        {cancelToken: new axios.CancelToken(c => cancel =c)}
+        )
         .then((response) => {
-        console.log(response);
-        const list = response.data.cards;
-        setCards(list);
+            const list = response.data.cards;
+            console.log(list)
+            setCards((prevCards) => {
+                return[...prevCards, list]
+            });
+            setHasMore(response.data.cards.length > 0);
+            setLoading(false);
         })
         .catch((error) => { 
-        setErrorMessage(error.message);
+            if (axios.isCancel(error)) return
+            setError(error.message);
         })
-    }, [])
-    return (cards) 
-}
+        return () => cancel()
+    }, [query, pageNumber])
+
+    return { loading, error, cards, hasMore };
+};
+
 
 export default CardList; 
