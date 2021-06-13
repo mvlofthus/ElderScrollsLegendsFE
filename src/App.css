@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+ul { 
+  padding-left: 1.2em; 
+}
+
+.card-img-top {
+  max-height: 56vh;
+  object-fit:contain;
+}
