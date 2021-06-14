@@ -5,10 +5,9 @@ const ESLCard = (props) => {
     const card = props.card
     
     return (
-        <Card border="secondary" style={{ textAlign:'left' }} key={index}>
+        <Card  bg='light' text='dark' style={{ textAlign:'left' }} key={index} className='mt-3 card h-100'>
         <Card.Img variant="top" src={card.imageUrl}/>
         <Card.Body>
-            {/* <Card.Title>{card.name}</Card.Title> */}
             <Card.Text>
                 <ul>
                     <li><strong>Name:</strong> {card.name}</li>
@@ -18,9 +17,9 @@ const ESLCard = (props) => {
                 </ul>
             </Card.Text>
         </Card.Body>
-        <Card.Footer>
+        {/* <Card.Footer>
             <small className="text-muted">Last updated 3 mins ago</small>
-        </Card.Footer>
+        </Card.Footer> */}
     </Card>
     )
 }

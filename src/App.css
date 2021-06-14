@@ -42,11 +42,11 @@ ul {
 }
 
 .card-img-top {
+  padding-top: .5em;
   max-height: 50vh;
   object-fit:contain;
 }
 
 .Card-deck {
-  padding: 2em;
+  padding: 0em;
 }
-
