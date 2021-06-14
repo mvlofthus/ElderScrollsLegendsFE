@@ -5,19 +5,23 @@ const ESLCard = (props) => {
     const card = props.card
     
     return (
-        <Card border="secondary" style={{ width: '18rem' }} key={index} >
-            <Card.Img variant="top" src={card.image}/>
-            <Card.Body>
-                <Card.Title>{card.name}</Card.Title>
-                <Card.Text>
-                    This is a wider card with supporting text below as a natural lead-in to
-                    additional content. This content is a little bit longer.
-                </Card.Text>
-            </Card.Body>
-            <Card.Footer>
-                <small className="text-muted">Last updated 3 mins ago</small>
-            </Card.Footer>
-        </Card>
+        <Card border="secondary" style={{ textAlign:'left' }} key={index}>
+        <Card.Img variant="top" src={card.imageUrl}/>
+        <Card.Body>
+            {/* <Card.Title>{card.name}</Card.Title> */}
+            <Card.Text>
+                <ul>
+                    <li><strong>Name:</strong> {card.name}</li>
+                    <li><strong>Text:</strong> {card.text}</li>
+                    <li><strong>Set Name:</strong> {card.set.name}</li>
+                    <li><strong>Type:</strong> {card.type}</li>
+                </ul>
+            </Card.Text>
+        </Card.Body>
+        <Card.Footer>
+            <small className="text-muted">Last updated 3 mins ago</small>
+        </Card.Footer>
+    </Card>
     )
 }
 

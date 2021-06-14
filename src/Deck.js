@@ -4,6 +4,7 @@ import ESLCard from './ESLCard'
 
 const Deck = (props) => {
     const cards = props.cards
+    const ref = props.ref;
 
     // const cardInfo = [
     //     {image: "", name: "first card", text: "blah", setname: "blue", type:"fire"},
@@ -15,7 +16,7 @@ const Deck = (props) => {
 
     const renderCard = (card, index) => {
         return(
-            <Card border="secondary" style={{ width: '18rem', textAlign:'left' }} key={index} >
+            <Card border="secondary" style={{ width: '18rem', textAlign:'left' }} key={index}>
                 <Card.Img variant="top" src={card.imageUrl}/>
                 <Card.Body>
                     {/* <Card.Title>{card.name}</Card.Title> */}
