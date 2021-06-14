@@ -1,9 +1,8 @@
 import './App.css';
-import Deck from './Deck';
-import { Container, InputGroup, FormControl, Col, CardDeck, Navbar, Row, Form, Nav } from 'react-bootstrap';
+import { Container, FormControl, Navbar, Form, Nav, CardGroup } from 'react-bootstrap';
 import { useState, useRef, useCallback } from 'react';
-import CardList from './CardList';
-import ESLCard from './ESLCard';
+import CardList from './Components/CardList';
+import ESLCard from './Components/ESLCard';
 
 function App() {
   
@@ -49,11 +48,11 @@ function App() {
               />
             </Form>  
           </Nav>
-      </Navbar>
+        </Navbar>
       </header>
       <main>
-          <Container class="Card-deck"> 
-            <CardDeck className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4">
+          <Container className="Card-deck"> 
+            <CardGroup className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4">
             {cards.map((card, index) => {
               if (cards.length === index + 1) {
                   return <div ref={lastCardElementRef} key={index}>
@@ -62,10 +61,10 @@ function App() {
                 return <div key={index}><ESLCard card={card} index={index}/></div>
               }
             })}
-          </CardDeck>
+          </CardGroup>
         </Container>
-        <div>{loading && 'Loading...'}</div>
-        <div>{error && 'Error'}</div>
+        <p>{loading && <strong>Loading...</strong>}</p>
+        <p>{error && <strong>Error</strong>}</p>
       </main>
     </div>
   );
