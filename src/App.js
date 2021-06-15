@@ -1,4 +1,5 @@
 import './App.css';
+import logo from './eslLogo.png' ;
 import { Container, FormControl, Navbar, Form, Nav, CardGroup } from 'react-bootstrap';
 import { useState, useRef, useCallback } from 'react';
 import CardList from './Components/CardList';
@@ -35,13 +36,20 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Navbar fixed='top' bg='dark' variant='dark'>
-          <Navbar.Brand>Cards of Elder Scrolls Legends</Navbar.Brand>
+        <Navbar fixed='top'  variant='dark' className="nav-bar">
+          <Navbar.Brand>
+            <img
+              src={logo}
+              height="50"
+              className="d-inline-block align-middle"
+              alt="logo"
+            />
+          </Navbar.Brand>
           <Nav className="ml-auto">
             <Form className="d-flex">
               <FormControl
-                placeholder="Search by Card Name"
-                aria-label="Search by Card Name"
+                placeholder="Search"
+                aria-label="Search"
                 aria-describedby="basic-addon1"
                 value={query}
                 onChange={handleSearch}
@@ -63,8 +71,8 @@ function App() {
             })}
           </CardGroup>
         </Container>
-        <p>{loading && <strong>Loading...</strong>}</p>
-        <p>{error && <strong>Error</strong>}</p>
+        <p className="message">{loading && <strong>Loading...</strong>}</p>
+        <p className="message">{error && <strong>Error</strong>}</p>
       </main>
     </div>
   );
