@@ -45,6 +45,7 @@ yarn add axios
 
 
 ## Description
+### Goals
 The following were requirements we set out to meet, organized by the way we accomplished these goals.
 
 Achieved with Bootstrap (primarily CardGroup and Card componenets, and built in row-col classNames):
@@ -59,9 +60,10 @@ Achieved with Axios and [React Hooks](https://reactjs.org/docs/hooks-reference.h
 * As the user scrolls down the page, load and append additional cards using “infinite scroll.”
 * Retrieve additional pages of results as-needed but do not load more than 20 cards with each request.
 
+### Files
 This project uses 3 main files:
 * App.js - houses our watchers for our infinite scroll, also houses search queries and displays our navigation bar and deck of cards.  Due to the number of callback functions required to make components these behave properly, and the relative simplicity of this project, the navigation bar and deck of cards currently are located in App.  Moving these to their own components would be the next step in imporving the modularity of this project. 
-* CardList.js - performs our API calls, and updates our list of cards 
+* CardList.js - performs our API calls, and updates and returns our list of cards to App
 * ESLCard.js - formats each of our individual Elder Scrolls Legends cards
 
 ## Images
