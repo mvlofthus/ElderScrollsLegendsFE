@@ -3,10 +3,10 @@ A clean, responsive UI to display and search for cards from the [Elder Scrolls L
 
 ## Prerequisites
 Make sure you have installed the following on your development machine:
-* Git - [Download & Install Git](https://git-scm.com/downloads). OSX and Linux machines typically have this already installed.
-* Node.js - [Download & Install Node.js](https://nodejs.org/en/download/) and the npm package manager. If you encounter any problems, you can also use this [GitHub Gist](https://gist.github.com/isaacs/579814) to install Node.js.
+* Git - [Download & Install Git](https://git-scm.com/downloads). 
+* Node.js - [Download & Install Node.js](https://nodejs.org/en/download/) and the npm package manager.
+* Visual Studio Code (or other code editor of choice) - [Download & Install VS Code](https://code.visualstudio.com/download)
 * Yarn - You're going to use the [Yarn Package Manager](https://classic.yarnpkg.com/en/) to manage your front-end packages. Make sure you've installed Node.js and npm first, then install yarn globally using npm:
-
 ```bash
 $ npm install --global yarn
 ```
@@ -15,12 +15,21 @@ $ npm install --global yarn
 $ brew install yarn
 ```
 
-## Setup
+## Application Build
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)
 
 Create app: 
 ```bash
 $ yarn create react-app <app-name>
+```
+
+## Application Setup
+Open project in code editor of choice and start development server.
+
+```bash
+$ cd <app-name>
+$ code .
+$ yarn start
 ```
 
 ## Installation
@@ -29,23 +38,34 @@ To style, install [Bootstrap](https://react-bootstrap.netlify.app/getting-starte
 yarn add react-bootstrap bootstrap@4.6.0
 ```
 
-To make API calls, install axios ([axios documentation](https://github.com/axios/axios)): 
+To make API calls, install [Axios](https://github.com/axios/axios): 
 ```bash
 yarn add axios
 ```
 
 
-## Application Setup / Build
-The following were requirements we set out to meet, re-ordered to match the order in which we implemented them:
+## Description
+The following were requirements we set out to meet, organized by the way we accomplished these goals.
+
+Achieved with Bootstrap (primarily CardGroup and Card componenets, and built in row-col classNames):
 * Show results in a card grid format with the image prominently displayed.
 * Each card displays: Image, Name, Text, Set Name, and Type. Additional fields are optional.
 * Use a responsive design that accommodates, at minimum, desktop and mobile.
+
+Achieved with Axios and [React Hooks](https://reactjs.org/docs/hooks-reference.html):
 * Initially, fetch and display the first 20 results returned by the API.
 * Allow the user to search for cards by Name.
 * Display a loading indicator when communicating with the API.
 * As the user scrolls down the page, load and append additional cards using “infinite scroll.”
 * Retrieve additional pages of results as-needed but do not load more than 20 cards with each request.
 
+This project uses 3 main files:
+* App.js - houses our watchers for our infinite scroll, also houses search queries and displays our navigation bar and deck of cards.  Due to the number of callback functions required to make components these behave properly, and the relative simplicity of this project, the navigation bar and deck of cards currently are located in App.  Moving these to their own components would be the next step in imporving the modularity of this project. 
+* CardList.js - performs our API calls, and updates our list of cards 
+* ESLCard.js - formats each of our individual Elder Scrolls Legends cards
+
+## Images
+Sourced from Elder Scrolls Legends site: https://legends.bethesda.net/en/media
 
 ## Available Yarn Scripts
 
