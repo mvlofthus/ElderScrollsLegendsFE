@@ -24,7 +24,7 @@ $ yarn create react-app <app-name>
 ```
 
 ## Application Setup
-Open project in code editor of choice and start development server.
+Open project in code editor of choice (command for VSCode on second line) and start development server.
 
 ```bash
 $ cd <app-name>
