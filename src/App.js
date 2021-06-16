@@ -1,10 +1,10 @@
 import './App.css';
-import logo from './eslLogo.png' ;
-import { Container, FormControl, Navbar, Form, Nav, CardGroup } from 'react-bootstrap';
+import { Container, CardGroup } from 'react-bootstrap';
 import { useState, useRef, useCallback } from 'react';
 import CardList from './Components/CardList';
 import ESLCard from './Components/ESLCard';
 import Navigation from './Components/Navigation';
+import Deck from './Components/Deck';
 
 function App() {
   
@@ -35,24 +35,14 @@ function App() {
     }
 
   return (
-    <div className="App">
+    <div className="App bg-image">
       <header className="App-header">
         <Navigation handleSearch={handleSearch} query={query}/>
       </header>
       <main>
-          <Container className="Card-deck"> 
-            <CardGroup className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4">
-            {cards.map((card, index) => {
-              if (cards.length === index + 1) {
-                  return <div ref={lastCardElementRef} key={index}>
-                  <ESLCard card={card} index={index}/></div>
-              } else {
-                return <div key={index}><ESLCard card={card} index={index}/></div>
-              }
-            })}
-          </CardGroup>
-        </Container>
+        <Deck cards={cards} lastCardElementRef={lastCardElementRef}/>
         <p className="message">{loading && <strong>Loading...</strong>}</p>
+        <p className="message">{cards.length === 0 && !loading && <strong>No results found</strong> } </p>
         <p className="message">{error && <strong>Error</strong>}</p>
       </main>
     </div>
