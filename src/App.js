@@ -1,8 +1,6 @@
 import './App.css';
-import { Container, CardGroup } from 'react-bootstrap';
 import { useState, useRef, useCallback } from 'react';
 import CardList from './Components/CardList';
-import ESLCard from './Components/ESLCard';
 import Navigation from './Components/Navigation';
 import Deck from './Components/Deck';
 
