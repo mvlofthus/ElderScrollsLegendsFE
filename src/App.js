@@ -4,6 +4,7 @@ import { Container, FormControl, Navbar, Form, Nav, CardGroup } from 'react-boot
 import { useState, useRef, useCallback } from 'react';
 import CardList from './Components/CardList';
 import ESLCard from './Components/ESLCard';
+import Navigation from './Components/Navigation';
 
 function App() {
   
@@ -36,27 +37,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Navbar fixed='top'  variant='dark' className="nav-bar">
-          <Navbar.Brand>
-            <img
-              src={logo}
-              height="50"
-              className="d-inline-block align-middle"
-              alt="logo"
-            />
-          </Navbar.Brand>
-          <Nav className="ml-auto">
-            <Form className="d-flex">
-              <FormControl
-                placeholder="Search"
-                aria-label="Search"
-                aria-describedby="basic-addon1"
-                value={query}
-                onChange={handleSearch}
-              />
-            </Form>  
-          </Nav>
-        </Navbar>
+        <Navigation handleSearch={handleSearch} query={query}/>
       </header>
       <main>
           <Container className="Card-deck"> 
