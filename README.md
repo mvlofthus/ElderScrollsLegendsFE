@@ -62,8 +62,8 @@ Achieved with Axios and [React Hooks](https://reactjs.org/docs/hooks-reference.h
 
 ### Files
 This project uses 5 main files:
-* App.js - houses our watchers for our infinite scroll and search handler function, and passes list of cards to Deck.  Alerts user to whether cards are loading, no cards are found under that search term, or there was an error. 
-* CardList.js - performs our API calls, and updates and returns our list of cards to App
+* App.js - houses our search handler function and our watcher for our infinite scroll, and passes list of cards to Deck.  Alerts user to whether cards are loading, no cards are found under that search term, or there was an error. 
+* CardList.js - performs our API calls, and updates and returns the list of cards to App based on the page number and search query passed to it
 * Navigation - houses our search bar for user queries and logo, and uses a callback function to update both our query and page number in App
 * Deck - formats our cards into a grid, uses a callback function to alert App when more cards need to be loaded, and passes card information to ESLCard
 * ESLCard.js - formats each of our individual Elder Scrolls Legends cards
