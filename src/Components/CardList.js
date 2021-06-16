@@ -2,7 +2,6 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 
 function CardList(query, pageNumber) {
-
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(true);
     const [cards, setCards] = useState([]);
@@ -24,8 +23,6 @@ function CardList(query, pageNumber) {
             cancelToken: new axios.CancelToken(c => cancel = c)
         })
         .then((response) => {
-            // const list = response.data.cards;
-            // console.log(list);
             setCards(prevList => {
                 return [...prevList, ...response.data.cards]
             });
@@ -42,6 +39,5 @@ function CardList(query, pageNumber) {
 
     return { loading, error, cards, hasMore };
 };
-
 
 export default CardList; 

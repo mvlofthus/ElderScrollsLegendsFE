@@ -15,6 +15,7 @@ function App() {
     cards, 
     hasMore } = CardList(query, pageNumber)
 
+    // Trigger infinite scroll when last card in set viewed on screen
     const observer = useRef();
     const lastCardElementRef = useCallback(node => {
       if (loading) return
@@ -27,6 +28,7 @@ function App() {
       if (node) observer.current.observe(node)
     }, [loading, hasMore])
     
+    // Search by user input, reset page number so all results displayed from page 1
     function handleSearch(e) {
       setQuery(e.target.value);
       setPageNumber(1);
