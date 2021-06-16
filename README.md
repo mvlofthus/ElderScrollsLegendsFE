@@ -46,9 +46,9 @@ yarn add axios
 
 ## Description
 ### Goals
-The following were requirements we set out to meet, organized by the way we accomplished these goals.
+The following were requirements we set out to meet, organized by the primary way we accomplished these goals.
 
-Achieved with Bootstrap (primarily CardGroup and Card componenets, and built in row-col classNames):
+Achieved with Bootstrap:
 * Show results in a card grid format with the image prominently displayed.
 * Each card displays: Image, Name, Text, Set Name, and Type. Additional fields are optional.
 * Use a responsive design that accommodates, at minimum, desktop and mobile.
@@ -61,16 +61,18 @@ Achieved with Axios and [React Hooks](https://reactjs.org/docs/hooks-reference.h
 * Retrieve additional pages of results as-needed but do not load more than 20 cards with each request.
 
 ### Files
-This project uses 3 main files:
+This project uses 5 main files:
 * App.js - houses our watchers for our infinite scroll and search handler function, and passes list of cards to Deck 
 * CardList.js - performs our API calls, and updates and returns our list of cards to App
-* Navigation - houses our search bar for user queries and logo, and uses a callback function to update our query and page number in App
-* Deck - formats our cards into a grid, uses a callback function to alert App when more cards need to be loaded, and passes individual card information to ESLCard
+* Navigation - houses our search bar for user queries and logo, and uses a callback function to update both our query and page number in App
+* Deck - formats our cards into a grid, uses a callback function to alert App when more cards need to be loaded, and passes card information to ESLCard
 * ESLCard.js - formats each of our individual Elder Scrolls Legends cards
 
 ## Images
 Sourced from Elder Scrolls Legends site: https://legends.bethesda.net/en/media
 
+ - - -
+ 
 ## Available Yarn Scripts
 
 In the project directory, you can run:
