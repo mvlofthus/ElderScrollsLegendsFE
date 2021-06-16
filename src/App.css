@@ -63,5 +63,7 @@ ul {
 }
 
 .message {
-  color: white
+  color: white;
+  /* font-weight: bold; */
+  background-color: rgba(0, 0, 0, 0.75);
 }

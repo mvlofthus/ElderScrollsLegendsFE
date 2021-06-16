@@ -39,9 +39,9 @@ function App() {
       </header>
       <main>
         <Deck cards={cards} lastCardElementRef={lastCardElementRef}/>
-        <p className="message">{loading && <strong>Loading...</strong>}</p>
-        <p className="message">{cards.length === 0 && !loading && <strong>No results found</strong> } </p>
-        <p className="message">{error && <strong>Error</strong>}</p>
+        <h3 className="message">{loading && 'Loading...'}</h3>
+        <h3 className="message">{cards.length === 0 && !loading &&  'No results found' } </h3>
+        <h3 className="message">{error && 'Error'}</h3>
       </main>
     </div>
   );

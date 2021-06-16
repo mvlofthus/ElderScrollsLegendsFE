@@ -11,7 +11,7 @@ return(
             src={logo}
             height="50"
             className="d-inline-block align-middle"
-            alt="logo"
+            alt="Elder Scrolls Legends Logo"
         />
         </Navbar.Brand>
         <Nav className="ml-auto">
